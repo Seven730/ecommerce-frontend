@@ -1,3 +1,4 @@
+import { ListService } from './list.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,5 +8,9 @@ import { Component } from '@angular/core';
 })
 export class ListComponent {
   title: string = 'Lista';
-  courses: string[] = ['Produkt 1', 'Produkt 2', 'Produkt 3'];
+  courses: any;
+
+  constructor(service: ListService) {
+    this.courses = service.getList();
+  }
 }
