@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./list.component.sass'],
 })
 export class ListComponent {
-  title: string = 'Lista';
-  courses: any;
+  header: string = 'Lista';
+  bookList: any;
 
   constructor(service: ListService) {
-    this.courses = service.getList();
+    this.bookList = service.getList();
   }
 }
