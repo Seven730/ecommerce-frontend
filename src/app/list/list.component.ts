@@ -11,6 +11,8 @@ export class ListComponent {
   bookList: any;
 
   constructor(service: ListService) {
-    this.bookList = service.getList();
+    this.bookList = service.getList(
+      'http://127.0.0.1:8000/api/book/?format=json'
+    );
   }
 }
