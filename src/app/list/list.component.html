@@ -3,6 +3,6 @@
 </div>
 <div class="Products">
   <ul>
-    <li *ngFor="let book of bookList">{{ book }}</li>
+    <li *ngFor="let book of bookList | async">{{ book.title | json}}</li>
   </ul>
 </div>
