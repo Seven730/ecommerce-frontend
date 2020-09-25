@@ -1,8 +1,8 @@
-<div>
+<div id='book-list'>
   <h2>{{ header }}</h2>
 </div>
 <div class="Products">
   <ul>
-    <li *ngFor="let book of bookList | async">{{ book.title | json}}</li>
+    <li *ngFor="let book of bookList | async">{{ book.title | json }}</li>
   </ul>
 </div>
