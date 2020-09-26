@@ -1,11 +1,45 @@
-h2
-    display: flex
-    justify-content: center
+#book-list
 
-ul
-    align-items: center
-
-.Products
-    display: flex
+.mat-card
+    background: none
+    width: 65%
+    height: 85%
+    display: inline-block
     justify-content: center
-    margin-right: 15px
+    padding: 0
+    border-bottom-left-radius: 10px
+    border-bottom-right-radius: 10px
+    .mat-card-image
+        height: 90%
+        width: 100%
+        margin: 0 0 0 0
+        transition: .4s ease
+        backface-visibility: hidden
+        &:hover
+            opacity: 0.3
+        &:hover ~ .middle
+            opacity: 1
+
+    .middle
+        transition: .4s ease
+        opacity: 0
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        -ms-transform: translate(-50%, -50%)
+        &:hover
+            opacity: 1
+        &:hover ~ .mat-card-image
+            opacity: 0.3
+
+    .mat-stroked-button
+        width: 100%
+        height: 10%
+        background: white
+        padding: 0 !important
+        // margin-bottom: 30px !important
+        border-bottom-left-radius: 10px
+        border-bottom-right-radius: 10px
+    p
+        text-align: center

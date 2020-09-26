@@ -1,8 +1,17 @@
 <div id='book-list'>
-  <h2>{{ header }}</h2>
-</div>
-<div class="Products">
-  <ul>
-    <li *ngFor="let book of bookList | async">{{ book.title | json }}</li>
-  </ul>
+  <mat-grid-list cols="4" rowHeight="1:1.15">
+    <mat-grid-tile *ngFor="let book of bookList | async">
+      <mat-card>
+        <img mat-card-image src='{{book.cover}}'>
+        <div class="middle">
+          <button mat-raised-button>Zobacz więcej</button>
+        </div>
+        <!-- <p>{{book.price + 'zł'}}</p> -->
+        <button mat-stroked-button (click)='handleAddToCart(book.title)'>Dodaj do koszyka <mat-icon>add
+
+          </mat-icon></button>
+
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

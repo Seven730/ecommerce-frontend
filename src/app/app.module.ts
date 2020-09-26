@@ -6,6 +6,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
@@ -33,6 +36,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
+    MatSidenavModule,
+    MatCardModule,
+    MatGridListModule,
   ],
   providers: [], // IMPORTANT - dependency, here use to be service
   bootstrap: [AppComponent],

@@ -11,6 +11,6 @@ export class MenuComponent {
   menu: any;
   constructor(http: HttpClient) {
     this.menu = http.get(this.url);
-    console.log(this.menu);
+    // console.log(this.menu);
   }
 }
