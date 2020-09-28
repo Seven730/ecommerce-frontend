@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
@@ -45,6 +46,7 @@ import { FooterComponent } from './footer/footer.component';
     MatSidenavModule,
     MatCardModule,
     MatGridListModule,
+    MatPaginatorModule,
   ],
   providers: [], // IMPORTANT - dependency, here use to be service
   bootstrap: [AppComponent],
