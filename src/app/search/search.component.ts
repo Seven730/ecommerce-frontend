@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class SearchComponent {
   value = '';
+  // dodaje ?search={{value}}
 }

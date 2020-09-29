@@ -1,4 +1,6 @@
-<div>
-  <p>MENU</p>
-  <!-- <p *ngFor="let genre of menu | async">{{ genre }}</p> -->
+<div class='menu-container'>
+  <h1>Gatunki</h1>
+  <mat-list *ngFor='let genre of genres'>
+    <mat-list-item class="menu-item" (click)="setUrl(genre)">{{genre}}</mat-list-item>
+  </mat-list>
 </div>

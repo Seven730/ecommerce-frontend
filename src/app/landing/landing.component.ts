@@ -10,7 +10,7 @@ export class LandingComponent {
   constructor() {}
 
   handleBrowseBooks() {
-    const element = document.querySelector('#book-list');
+    const element = document.querySelector('#scroll');
     if (element)
       element.scrollIntoView({
         behavior: 'smooth',

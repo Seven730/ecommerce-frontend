@@ -1,9 +1,10 @@
+// Angular Modules
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+// Angular Material Modules
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -12,7 +13,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { MatListModule } from '@angular/material/list';
+// Components
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { MenuComponent } from './menu/menu.component';
@@ -21,6 +23,9 @@ import { SearchComponent } from './search/search.component';
 import { LandingComponent } from './landing/landing.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+// Services
+import { GenresService } from './menu/genres.service';
+import { ListService } from './list/list.service';
 
 @NgModule({
   declarations: [
@@ -47,8 +52,9 @@ import { FooterComponent } from './footer/footer.component';
     MatCardModule,
     MatGridListModule,
     MatPaginatorModule,
+    MatListModule,
   ],
-  providers: [], // IMPORTANT - dependency, here use to be service
+  providers: [GenresService, ListService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
