@@ -1,10 +1,10 @@
-import { SearchComponent } from './../search/search.component';
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ListService } from './list.service';
+import { Component, OnInit } from '@angular/core';
 
 interface IListComponent {
   bookList: string[];
   url: string;
+  message: string;
 }
 
 @Component({
@@ -12,16 +12,26 @@ interface IListComponent {
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.sass'],
 })
-export class ListComponent implements IListComponent {
+export class ListComponent implements IListComponent, OnInit {
   bookList;
   url = 'http://127.0.0.1:8000/api/books/?format=json';
+  message;
 
-  constructor(http: HttpClient) {
-    // console.log(search.value);
-    this.bookList = http.get(this.url);
+  constructor(private service: ListService) {}
+
+  ngOnInit() {
+    this.service.currentMessage.subscribe(
+      (message) => (this.message = message)
+    );
   }
 
   handleAddToCart(bookTitle) {
     alert(`Książka ${bookTitle} dodana do koszyka!`);
+  }
+
+  getBookList() {
+    this.service
+      .getList(`${this.url}&search=${this.message}`)
+      .subscribe((data) => (this.bookList = data));
   }
 }
