@@ -23,6 +23,9 @@ export class ListComponent implements IListComponent, OnInit {
     this.service.currentMessage.subscribe(
       (message) => (this.message = message)
     );
+    this.service
+      .getList(`${this.url}&search=${this.message}`)
+      .subscribe((data) => (this.bookList = data));
   }
 
   handleAddToCart(bookTitle) {

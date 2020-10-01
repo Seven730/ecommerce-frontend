@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OverlayModule } from '@angular/cdk/overlay';
 // Angular Material Modules
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -26,6 +27,7 @@ import { FooterComponent } from './footer/footer.component';
 // Services
 import { GenresService } from './menu/genres.service';
 import { ListService } from './list/list.service';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { ListService } from './list/list.service';
     LandingComponent,
     NavbarComponent,
     FooterComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { ListService } from './list/list.service';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    OverlayModule,
     MatInputModule,
     MatButtonModule,
     MatToolbarModule,
