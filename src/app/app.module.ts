@@ -28,6 +28,7 @@ import { FooterComponent } from './footer/footer.component';
 import { GenresService } from './menu/genres.service';
 import { ListService } from './list/list.service';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { RegisterComponent } from './register/register.component';
     NavbarComponent,
     FooterComponent,
     RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

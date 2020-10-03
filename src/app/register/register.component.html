@@ -1,21 +1,17 @@
 <button mat-raised-button (click)="openWithTemplate(tpl)">Rejestracja</button>
-<div class='overlay-container'>
-  <ng-template #tpl>
-    <div class="modal-card">
-      <mat-card class="card">
-        <header class="modal-card-head">
-          <input formControlName="name" class="input" type="text" placeholder="e.g Alex Smith">
+<ng-template #tpl>
+  <div class="modal-card">
+    <mat-card class="card">
+      <header class="modal-card-head">
 
-        </header>
-        <section class="modal-card-body">
-          <input formControlName="name" class="input" type="text" placeholder="e.g Alex Smith">
+      </header>
+      <section class="modal-card-body">
 
-        </section>
-        <footer class="modal-card-foot">
-          <button mat-raised-button>Potwierdź</button>
-          <button mat-raised-button>Anuluj</button>
-        </footer>
-      </mat-card>
-    </div>
-  </ng-template>
-</div>
+      </section>
+      <footer class="modal-card-foot">
+        <button mat-raised-button>Potwierdź</button>
+        <button mat-raised-button>Anuluj</button>
+      </footer>
+    </mat-card>
+  </div>
+</ng-template>
