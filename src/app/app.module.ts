@@ -29,6 +29,9 @@ import { GenresService } from './menu/genres.service';
 import { ListService } from './list/list.service';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,9 @@ import { LoginComponent } from './login/login.component';
     FooterComponent,
     RegisterComponent,
     LoginComponent,
+    ProfileComponent,
+    HomeComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
