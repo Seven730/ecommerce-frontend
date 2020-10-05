@@ -3,10 +3,37 @@
   <div class="modal-card">
     <mat-card class="card">
       <header class="modal-card-head">
-
+        <h1>Rejestracja</h1>
       </header>
       <section class="modal-card-body">
+        <form>
+          <div>
+            <mat-form-field>
+              <mat-label>E-mail</mat-label>
+              <input matInput placeholder="Wpisz email..." [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <mat-label>Login</mat-label>
+              <input matInput placeholder="Wpisz login..." [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <mat-label>Hasło</mat-label>
+              <input matInput placeholder="Wpisz hasło..." [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+          </div>
 
+          <div>
+            <mat-form-field>
+              <mat-label>Powtórz hasło</mat-label>
+              <input matInput placeholder="Powtórz hasło..." [(ngModel)]="repeatPassword"
+                [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+          </div>
+        </form>
       </section>
       <footer class="modal-card-foot">
         <button mat-raised-button>Potwierdź</button>

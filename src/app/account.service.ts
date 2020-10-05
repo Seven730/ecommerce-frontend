@@ -12,12 +12,15 @@ export class AccountService {
 
   constructor(private router: Router, private http: HttpClient) {}
 
-  register() {}
+  register(email: string, username: string, password: string) {}
 
-  login(username, password) {
-    if (username && password)
-      return this.http.post<any>('', { username, password });
-    else alert('Podaj poprawne dane!');
+  login(username: string, password: string) {
+    if (username && password) {
+      return this.http.post<any>('http://localhost:8000/api/users/login/', {
+        username,
+        password,
+      });
+    } else alert('Podaj poprawne dane!');
   }
 
   logout() {}

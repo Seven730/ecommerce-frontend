@@ -1,6 +1,10 @@
 import { AccountService } from './../account.service';
 import { Component, ViewContainerRef, TemplateRef } from '@angular/core';
-import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
+import {
+  Overlay,
+  OverlayConfig,
+  ConnectionPositionPair,
+} from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 
 interface ILoginComponent {
@@ -24,23 +28,35 @@ export class LoginComponent implements ILoginComponent {
   ) {}
 
   openWithTemplate(tpl: TemplateRef<any>) {
+    const positionStrategy = this.overlay
+      .position()
+      .global()
+      .centerHorizontally()
+      .centerVertically();
+
     const configs = new OverlayConfig({
-      // width: 100,
-      // height: 100,
       hasBackdrop: true,
       panelClass: ['modal', 'is-active'],
-      backdropClass: 'modal-background',
+      backdropClass: 'overlay-background',
+      positionStrategy,
     });
 
     const overlayRef = this.overlay.create(configs);
+
+    let originPos = {
+      originX: 'center',
+      originY: 'center',
+    };
 
     overlayRef.attach(new TemplatePortal(tpl, this.viewContainerRef));
     overlayRef.backdropClick().subscribe(() => overlayRef.dispose());
   }
 
   onSubmit() {
-    this.account.login(this.username, this.password);
+    this.account.login(this.username, this.password).subscribe((data) => console.log(data));
   }
 
-  onCancel() {}
+  onCancel() {
+    this.overlay;
+  }
 }
