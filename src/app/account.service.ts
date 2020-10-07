@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { htmlAstToRender3Ast } from '@angular/compiler/src/render3/r3_template_transform';
 
 @Injectable({
   providedIn: 'root',
@@ -25,6 +24,6 @@ export class AccountService {
   }
 
   logout(token) {
-    this.http.get('', { headers: 'Authentication: ' });
+    // this.http.get('', { headers: 'Authentication: ' });
   }
 }

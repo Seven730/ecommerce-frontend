@@ -17,8 +17,5 @@ export class ListService {
 
   changeMessage(message: string) {
     this.messageSource.next(message);
-    this.getList(
-      `http://127.0.0.1:8000/api/books/?format=json&search=${message}`
-    );
   }
 }
