@@ -1,15 +1,50 @@
-<app-search></app-search>
 <div id='book-list'>
+  <app-search></app-search>
   <mat-grid-list cols="4" rowHeight="1:1.15">
-    <mat-grid-tile *ngFor="let book of bookList">
+    <mat-grid-tile *ngFor="let book of this.bookList">
       <mat-card>
-        <mat-card-title>{{book.price + 'zł'}}</mat-card-title>
-        <img mat-card-image src='{{book.cover}}'>
+        <img class='small-image' mat-card-image src='{{book.cover}}' (click)="openWithTemplate(tpl)">
+
+        <ng-template #tpl>
+          <div class="modal-card">
+            <mat-card class="card">
+              <header class="modal-card-head">
+                <h1>{{book.title}}</h1>
+              </header>
+              <button class='button' mat-raised-button (click)='onCancel()'>
+                <mat-icon>cancel</mat-icon>
+              </button>
+              <section class="modal-card-body">
+                <form>
+                  <div>
+                    <img class='big-image' mat-card-image src='{{book.cover}}'>
+                  </div>
+                  <div>
+                    <h4>{{book.price + 'zł'}}</h4>
+                    <p>{{book.description}}</p>
+                  </div>
+                </form>
+              </section>
+              <footer class="modal-card-foot">
+                <button class='add-to-cart-button' mat-stroked-button (click)='handleAddToCart(book.title)'>Dodaj do
+                  koszyka
+                  <mat-icon>add
+                  </mat-icon>
+                </button>
+              </footer>
+            </mat-card>
+          </div>
+        </ng-template>
+
         <div class="middle">
-          <button mat-raised-button>Więcej</button>
+          <mat-icon class="see-more">zoom_in</mat-icon>
+          <p>Więcej</p>
         </div>
-        <button mat-stroked-button (click)='handleAddToCart(book.title)'>Dodaj do koszyka <mat-icon>add
-          </mat-icon></button>
+        <button class='add-to-cart-button' mat-stroked-button (click)='handleAddToCart(book.title)'>Dodaj do koszyka
+          <mat-icon>add
+          </mat-icon>
+        </button>
+        <mat-card-title class="price">{{book.price + 'zł'}}</mat-card-title>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>

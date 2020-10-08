@@ -1,4 +1,4 @@
-<button mat-raised-button (click)="openWithTemplate(tpl)">Logowanie</button>
+<button class='button' mat-raised-button (click)="openWithTemplate(tpl)">Zaloguj się</button>
 <ng-template #tpl>
   <div class="modal-card">
     <mat-card class="card">
@@ -22,8 +22,8 @@
         </form>
       </section>
       <footer class="modal-card-foot">
-        <button mat-raised-button (click)='onSubmit()'>Potwierdź</button>
-        <button mat-raised-button (click)='onCancel()'>Anuluj</button>
+        <button class='button' mat-raised-button (click)='onSubmit()'>Potwierdź</button>
+        <button class='button' mat-raised-button (click)='onCancel()'>Anuluj</button>
       </footer>
     </mat-card>
   </div>

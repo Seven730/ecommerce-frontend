@@ -54,7 +54,7 @@ export class LoginComponent implements ILoginComponent {
         console.log(response);
         localStorage.setItem('token', response.token);
         this.overlayRef.dispose();
-        this.router.navigate(['/profile']);
+        // this.router.navigate(['/profile']);
       },
       (error) => console.log(error)
     );

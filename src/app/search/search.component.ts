@@ -11,16 +11,16 @@ export class SearchComponent implements OnInit {
 
   constructor(private list: ListComponent) {}
 
-  setUrl(message: string) {
+  setUrl(message: string): void {
     this.list.getBookList(message);
   }
 
-  cancelSearch() {
+  cancelSearch(): void {
     this.value = '';
     this.list.getBookList(this.value);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.list.getBookList(this.value);
   }
 }

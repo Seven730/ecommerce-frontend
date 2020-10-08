@@ -1,3 +1,4 @@
+import { ListComponent } from './../list/list.component';
 import { GenresService } from './genres.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,15 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class MenuComponent implements OnInit {
   public genres: [];
 
-  constructor(private service: GenresService) {}
+  constructor(private service: GenresService, private list: ListComponent) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.service
       .getGenres()
       .subscribe((data) => ((this.genres as any) = Object.values(data)));
   }
 
-  setUrl(genre: string) {
-    alert(`Zmieniono gatunek na ${genre}`);
+  setUrl(genre: string): void {
+    this.list.getBookList('', genre.slice(0, 1));
   }
 }

@@ -1,22 +1,46 @@
 <p>
   <mat-toolbar class='navbar' color="primary">
-    <span (click)='handleScrollToTheTop()'>Bookshop</span>
-    <mat-icon>book</mat-icon>
-    <span class="example-spacer"></span>
+    <span class="logo" (click)='handleScrollToTheTop()'>Świat Książek</span>
+    <!-- <span class="example-spacer"></span> -->
     <span class="spacer"></span>
-
-    <button mat-icon-button>
-      <mat-icon>shopping_cart</mat-icon>
-    </button>
-
     <app-login *ngIf='!this.account.isLoggedIn()'></app-login>
     <app-register *ngIf='!this.account.isLoggedIn()'></app-register>
-    <app-logout *ngIf='this.account.isLoggedIn()'></app-logout>
-    <button mat-icon-button>
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button>
-      <mat-icon>share</mat-icon>
+    <div *ngIf='this.account.isLoggedIn()'>
+      <a class='icon-link' routerLink='/'>
+        <button mat-icon-button matTooltip="Twój Koszyk" matTooltipPosition="below" matTooltipShowDelay="300"
+          matTooltipHideDelay="300">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+      </a>
+      <a class='icon-link' routerLink='/home'>
+        <button mat-icon-button matTooltip="Książki" matTooltipPosition="below" matTooltipShowDelay="300"
+          matTooltipHideDelay="300">
+          <mat-icon>book</mat-icon>
+        </button>
+      </a>
+      <a class='icon-link' routerLink='/profile'>
+        <button mat-icon-button matTooltip="Profil Użytkownika" matTooltipPosition="below" matTooltipShowDelay="300"
+          matTooltipHideDelay="300">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+      </a>
+      <a>
+        <button mat-icon-button matTooltip="Polub nas!" matTooltipPosition="below" matTooltipShowDelay="300"
+          matTooltipHideDelay="300">
+          <mat-icon>favorite</mat-icon>
+        </button>
+      </a>
+      <a>
+        <button mat-icon-button matTooltip="Udostępnij znajomym" matTooltipPosition="below" matTooltipShowDelay="300"
+          matTooltipHideDelay="300">
+          <mat-icon>share</mat-icon>
+        </button>
+      </a>
+      <app-logout></app-logout>
+    </div>
+    <button mat-icon-button matTooltip="Zmień język" matTooltipPosition="below" matTooltipShowDelay="300"
+      matTooltipHideDelay="300">
+      <mat-icon>language</mat-icon>
     </button>
   </mat-toolbar>
 </p>

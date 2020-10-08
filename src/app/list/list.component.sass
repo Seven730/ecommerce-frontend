@@ -1,25 +1,27 @@
-#book-list
+#booklist
+    background-color: ivory
 
 .mat-card
-    background: none
-    width: 65%
-    height: 85%
+    background: white
+    width: 60%
+    height: 75%
     display: inline-block
     justify-content: center
-    padding: 0
-    border-bottom-left-radius: 10px
-    border-bottom-right-radius: 10px
-    .mat-card-image
+    padding: 20px 20px 45px 20px
+    border: 1px solid lightgrey
+    box-shadow: 1.5px 0.8px 0.8px 1px #c2c2c2
+    margin: 3% 0 3% 0
+    .small-image
         height: 90%
         width: 100%
         margin: 0 0 0 0
-        transition: .4s ease
+        transition: .3s ease
         backface-visibility: hidden
+        cursor: pointer
         &:hover
             opacity: 0.3
         &:hover ~ .middle
             opacity: 1
-
     .middle
         transition: .4s ease
         opacity: 0
@@ -32,14 +34,26 @@
             opacity: 1
         &:hover ~ .mat-card-image
             opacity: 0.3 !important
-
-    .mat-stroked-button
+    .add-to-cart-button
         width: 100%
         height: 10%
         background: white
         padding: 0 !important
-        // margin-bottom: 30px !important
-        border-bottom-left-radius: 10px
-        border-bottom-right-radius: 10px
-    p
+        margin-top: -5px
+        border-radius: 0px 0px 10px 10px
+        border: 1px solid black
+        border-top: none
+        // box-shadow: 1.5px 0.8px #c2c2c2
+    .see-more
+        font-size: 50px
+        cursor: pointer
+    .price
         text-align: center
+        margin-top: 4%
+    .big-image
+        width: 400px
+        height: 500px
+    .modal-card
+        text-align: center
+    .card
+        width: 600px

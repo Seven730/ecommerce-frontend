@@ -16,6 +16,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatListModule } from '@angular/material/list';
+import { MatTooltipModule } from '@angular/material/tooltip';
 // Components
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
@@ -69,8 +70,15 @@ import { AuthGuard } from './auth.guard';
     MatGridListModule,
     MatPaginatorModule,
     MatListModule,
+    MatTooltipModule,
   ],
-  providers: [GenresService, ListService, AuthGuard, AccountService],
+  providers: [
+    GenresService,
+    ListService,
+    AuthGuard,
+    AccountService,
+    ListComponent,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
