@@ -1,5 +1,5 @@
-import { ListService } from './../list/list.service';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ListComponent } from './../list/list.component';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -7,20 +7,20 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./search.component.sass'],
 })
 export class SearchComponent implements OnInit {
-  value = '';
-  message: string;
-  @Output() myEvent = new EventEmitter();
+  value: string = '';
 
-  constructor(private service: ListService) {}
+  constructor(private list: ListComponent) {}
 
-  setUrl(value) {
-    this.service.changeMessage(value);
-    this.myEvent.emit(null);
+  setUrl(message: string) {
+    this.list.getBookList(message);
+  }
+
+  cancelSearch() {
+    this.value = '';
+    this.list.getBookList(this.value);
   }
 
   ngOnInit() {
-    this.service.currentMessage.subscribe(
-      (message) => (this.message = message)
-    );
+    this.list.getBookList(this.value);
   }
 }

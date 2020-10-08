@@ -1,11 +1,8 @@
-import { AccountService } from './../account.service';
+import { AccountService } from '../../account.service';
 import { Component, ViewContainerRef, TemplateRef } from '@angular/core';
-import {
-  Overlay,
-  OverlayConfig,
-  ConnectionPositionPair,
-} from '@angular/cdk/overlay';
+import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
+import { Router } from '@angular/router';
 
 interface ILoginComponent {
   username: string;
@@ -20,11 +17,13 @@ interface ILoginComponent {
 export class LoginComponent implements ILoginComponent {
   username;
   password;
+  overlayRef: any;
 
   constructor(
     private overlay: Overlay,
     private viewContainerRef: ViewContainerRef,
-    private account: AccountService
+    private account: AccountService,
+    private router: Router
   ) {}
 
   openWithTemplate(tpl: TemplateRef<any>) {
@@ -37,26 +36,31 @@ export class LoginComponent implements ILoginComponent {
     const configs = new OverlayConfig({
       hasBackdrop: true,
       panelClass: ['modal', 'is-active'],
-      backdropClass: 'overlay-background',
+      backdropClass: 'dark-backdrop',
       positionStrategy,
+      scrollStrategy: this.overlay.scrollStrategies.block(),
     });
 
     const overlayRef = this.overlay.create(configs);
-
-    let originPos = {
-      originX: 'center',
-      originY: 'center',
-    };
+    this.overlayRef = overlayRef;
 
     overlayRef.attach(new TemplatePortal(tpl, this.viewContainerRef));
     overlayRef.backdropClick().subscribe(() => overlayRef.dispose());
   }
 
   onSubmit() {
-    this.account.login(this.username, this.password).subscribe((data) => console.log(data));
+    this.account.login(this.username, this.password).subscribe(
+      (response) => {
+        console.log(response);
+        localStorage.setItem('token', response.token);
+        this.overlayRef.dispose();
+        this.router.navigate(['/profile']);
+      },
+      (error) => console.log(error)
+    );
   }
 
   onCancel() {
-    this.overlay;
+    this.overlayRef.dispose();
   }
 }

@@ -1,3 +1,4 @@
+import { AccountService } from './../account.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.sass'],
 })
 export class NavbarComponent {
-  constructor() {}
+  constructor(public account: AccountService) {}
 
   handleScrollToTheTop() {
     const element = document.querySelector('app-navbar');

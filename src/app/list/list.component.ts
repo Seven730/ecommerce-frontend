@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 interface IListComponent {
   bookList: string[];
   url: string;
-  message: string;
 }
 
 @Component({
@@ -12,29 +11,19 @@ interface IListComponent {
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.sass'],
 })
-export class ListComponent implements IListComponent, OnInit {
+export class ListComponent implements IListComponent {
   bookList;
   url = 'http://127.0.0.1:8000/api/books/?format=json';
-  message;
 
   constructor(private service: ListService) {}
-
-  ngOnInit() {
-    this.service.currentMessage.subscribe(
-      (message) => (this.message = message)
-    );
-    this.service
-      .getList(`${this.url}&search=${this.message}`)
-      .subscribe((data) => (this.bookList = data));
-  }
 
   handleAddToCart(bookTitle) {
     alert(`Książka ${bookTitle} dodana do koszyka!`);
   }
 
-  getBookList() {
+  getBookList(message) {
     this.service
-      .getList(`${this.url}&search=${this.message}`)
+      .getList(`${this.url}&search=${message}`)
       .subscribe((data) => (this.bookList = data));
   }
 }

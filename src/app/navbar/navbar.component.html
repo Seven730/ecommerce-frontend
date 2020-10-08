@@ -9,8 +9,9 @@
       <mat-icon>shopping_cart</mat-icon>
     </button>
 
-    <app-login></app-login>
-    <app-register></app-register>
+    <app-login *ngIf='!this.account.isLoggedIn()'></app-login>
+    <app-register *ngIf='!this.account.isLoggedIn()'></app-register>
+    <app-logout *ngIf='this.account.isLoggedIn()'></app-logout>
     <button mat-icon-button>
       <mat-icon>favorite</mat-icon>
     </button>
