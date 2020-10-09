@@ -10,27 +10,28 @@
             <mat-card class="card">
               <header class="modal-card-head">
                 <h1>{{book.title}}</h1>
+                <button class='button' mat-raised-button (click)='onCancel()'>
+                  <mat-icon>cancel</mat-icon>
+                </button>
               </header>
-              <button class='button' mat-raised-button (click)='onCancel()'>
-                <mat-icon>cancel</mat-icon>
-              </button>
+             
               <section class="modal-card-body">
-                <form>
-                  <div>
-                    <img class='big-image' mat-card-image src='{{book.cover}}'>
-                  </div>
+                <mat-grid-list cols="2" rowHeight="2:1">
+                    <div>
+                      <img class='big-image' mat-card-image src='{{book.cover}}'>
+                    </div>
                   <div>
                     <h4>{{book.price + 'zł'}}</h4>
                     <p>{{book.description}}</p>
                   </div>
-                </form>
+                  <button class="overlay-add-to-cart-button" mat-stroked-button color="primary" (click)='handleAddToCart(book.title)'>Dodaj do
+                    koszyka
+                    <mat-icon>add
+                    </mat-icon>
+                  </button>
+                </mat-grid-list>
               </section>
               <footer class="modal-card-foot">
-                <button class='add-to-cart-button' mat-stroked-button (click)='handleAddToCart(book.title)'>Dodaj do
-                  koszyka
-                  <mat-icon>add
-                  </mat-icon>
-                </button>
               </footer>
             </mat-card>
           </div>
