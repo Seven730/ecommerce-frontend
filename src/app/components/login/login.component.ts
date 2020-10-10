@@ -2,11 +2,11 @@ import { AccountService } from '../../account.service';
 import { Component, ViewContainerRef, TemplateRef } from '@angular/core';
 import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
-import { Router } from '@angular/router';
 
 interface ILoginComponent {
   username: string;
   password: string;
+  overlayRef: any;
 }
 
 @Component({
@@ -17,13 +17,12 @@ interface ILoginComponent {
 export class LoginComponent implements ILoginComponent {
   username;
   password;
-  overlayRef: any;
+  overlayRef;
 
   constructor(
     private overlay: Overlay,
     private viewContainerRef: ViewContainerRef,
-    private account: AccountService,
-    private router: Router
+    private account: AccountService
   ) {}
 
   openWithTemplate(tpl: TemplateRef<any>) {
@@ -48,19 +47,23 @@ export class LoginComponent implements ILoginComponent {
     overlayRef.backdropClick().subscribe(() => overlayRef.dispose());
   }
 
-  onSubmit() {
-    this.account.login(this.username, this.password).subscribe(
-      (response) => {
-        console.log(response);
-        localStorage.setItem('token', response.token);
-        this.overlayRef.dispose();
-        // this.router.navigate(['/profile']);
-      },
-      (error) => console.log(error)
-    );
+  onSubmit(): void {
+    if (this.username && this.password) {
+      this.account.login(this.username, this.password).subscribe(
+        (response) => {
+          console.log(response);
+          localStorage.setItem('token', response.token);
+          this.overlayRef.dispose();
+          window.location.reload();
+        },
+        (error) => console.log(error)
+      );
+    } else {
+      alert('Podaj poprawne dane!');
+    }
   }
 
-  onCancel() {
+  onCancel(): void {
     this.overlayRef.dispose();
   }
 }

@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class AccountService {
   public user: Observable<User>;
   private loginURL: string = 'http://localhost:8000/api/users/login/';
-  private registerURL: string = '';
+  private registerURL: string = 'http://localhost:8000/api/users/';
   private logoutURL: string = 'http://localhost:8000/api/users/me/';
   constructor(private router: Router, private http: HttpClient) {}
 
@@ -19,16 +19,14 @@ export class AccountService {
     username: string,
     password: string
   ): Observable<User> {
-    return this.http.post<any>(this.registerURL, {});
+    return this.http.post<any>(this.registerURL, { email, username, password });
   }
 
   login(username: string, password: string): Observable<User> {
-    if (username && password) {
-      return this.http.post<any>(this.loginURL, {
-        username,
-        password,
-      });
-    } else alert('Podaj poprawne dane!');
+    return this.http.post<any>(this.loginURL, {
+      username,
+      password,
+    });
   }
 
   logout(): void {
@@ -37,7 +35,7 @@ export class AccountService {
     });
     localStorage.removeItem('token');
     this.router.navigate(['/home']);
-    // window.location.reload();
+    window.location.reload();
   }
 
   isLoggedIn(): boolean {

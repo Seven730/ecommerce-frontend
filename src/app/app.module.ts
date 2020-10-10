@@ -31,11 +31,13 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { CartComponent } from './cart/cart.component';
 // Services
 import { GenresService } from './menu/genres.service';
 import { ListService } from './list/list.service';
 import { AccountService } from './account.service';
 import { AuthGuard } from './auth.guard';
+import { ProfileService } from './profile/profile.service';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { AuthGuard } from './auth.guard';
     HomeComponent,
     PageNotFoundComponent,
     LogoutComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,6 +81,7 @@ import { AuthGuard } from './auth.guard';
     AuthGuard,
     AccountService,
     ListComponent,
+    ProfileService,
   ],
   bootstrap: [AppComponent],
 })

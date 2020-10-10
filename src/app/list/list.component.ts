@@ -1,3 +1,4 @@
+import { CartService } from './../cart/cart.service';
 import { AccountService } from './../account.service';
 import { ListService } from './list.service';
 import { Component, ViewContainerRef, TemplateRef } from '@angular/core';
@@ -24,27 +25,16 @@ export class ListComponent implements IListComponent {
     private service: ListService,
     private account: AccountService,
     private overlay: Overlay,
-    private viewContainerRef: ViewContainerRef
+    private viewContainerRef: ViewContainerRef,
+    private cart: CartService
   ) {}
 
-  handleAddToCart(bookTitle) {
-    if (this.account.isLoggedIn()) {
-      alert(`Książka ${bookTitle} dodana do koszyka!`);
-    } else {
-      alert('Aby dodać produkt do koszyka najpierw musisz się zalogować!');
-    }
-  }
-
-  getBookList(message?: string, genre?: string) {
-    if (!message) message = '';
-    if (!genre) genre = '';
-    console.log(`${this.url}&search=${message}&genre=${genre}`);
-    this.service
-      .getList(`${this.url}&search=${message}&genre=${genre}`)
-      .subscribe((data) => {
-        this.bookList = data;
-        console.log(this.bookList);
-      });
+  getBookList(search: string, genre: string) {
+    this.url = `${this.url}&search=${search}&genre=${genre}`;
+    this.service.getList(this.url).subscribe((data) => {
+      this.bookList = data;
+      console.log(this.bookList);
+    });
   }
 
   openWithTemplate(tpl: TemplateRef<any>) {
@@ -67,6 +57,15 @@ export class ListComponent implements IListComponent {
 
     overlayRef.attach(new TemplatePortal(tpl, this.viewContainerRef));
     overlayRef.backdropClick().subscribe(() => overlayRef.dispose());
+  }
+
+  handleAddToCart(bookTitle) {
+    if (this.account.isLoggedIn()) {
+      this.cart.addBook();
+      alert(`Książka ${bookTitle} dodana do koszyka!`);
+    } else {
+      alert('Aby dodać produkt do koszyka najpierw musisz się zalogować!');
+    }
   }
 
   onCancel() {

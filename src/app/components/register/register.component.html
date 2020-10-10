@@ -36,8 +36,8 @@
         </form>
       </section>
       <footer class="modal-card-foot">
-        <button class='button' mat-raised-button>Potwierdź</button>
-        <button class='button' mat-raised-button>Anuluj</button>
+        <button class='button' mat-raised-button (click)='onSubmit()'>Potwierdź</button>
+        <button class='button' mat-raised-button (click)='onCancel()'>Anuluj</button>
       </footer>
     </mat-card>
   </div>

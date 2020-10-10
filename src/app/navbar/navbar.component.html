@@ -6,7 +6,7 @@
     <app-login *ngIf='!this.account.isLoggedIn()'></app-login>
     <app-register *ngIf='!this.account.isLoggedIn()'></app-register>
     <div *ngIf='this.account.isLoggedIn()'>
-      <a class='icon-link' routerLink='/'>
+      <a class='icon-link' routerLink='/cart'>
         <button mat-icon-button matTooltip="Twój Koszyk" matTooltipPosition="below" matTooltipShowDelay="300"
           matTooltipHideDelay="300">
           <mat-icon>shopping_cart</mat-icon>

@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.sass'],
 })
 export class MenuComponent implements OnInit {
-  public genres: [];
+  public genres: string[];
 
   constructor(private service: GenresService, private list: ListComponent) {}
 
