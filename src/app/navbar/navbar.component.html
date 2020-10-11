@@ -1,45 +1,44 @@
 <p>
   <mat-toolbar class='navbar' color="primary">
-    <span class="logo" (click)='handleScrollToTheTop()'>Świat Książek</span>
-    <!-- <span class="example-spacer"></span> -->
+    <span class="logo" (click)='handleScrollToTheTop()'>Książki.pl</span>
     <span class="spacer"></span>
     <app-login *ngIf='!this.account.isLoggedIn()'></app-login>
     <app-register *ngIf='!this.account.isLoggedIn()'></app-register>
     <div *ngIf='this.account.isLoggedIn()'>
       <a class='icon-link' routerLink='/cart'>
-        <button mat-icon-button matTooltip="Twój Koszyk" matTooltipPosition="below" matTooltipShowDelay="300"
-          matTooltipHideDelay="300">
+        <button mat-icon-button matTooltip="Twój Koszyk" matTooltipPosition="below" matTooltipShowDelay="150"
+          matTooltipHideDelay="250">
           <mat-icon>shopping_cart</mat-icon>
         </button>
       </a>
       <a class='icon-link' routerLink='/home'>
-        <button mat-icon-button matTooltip="Książki" matTooltipPosition="below" matTooltipShowDelay="300"
-          matTooltipHideDelay="300">
+        <button mat-icon-button matTooltip="Książki" matTooltipPosition="below" matTooltipShowDelay="150"
+          matTooltipHideDelay="250">
           <mat-icon>book</mat-icon>
         </button>
       </a>
       <a class='icon-link' routerLink='/profile'>
-        <button mat-icon-button matTooltip="Profil Użytkownika" matTooltipPosition="below" matTooltipShowDelay="300"
-          matTooltipHideDelay="300">
+        <button mat-icon-button matTooltip="Profil Użytkownika" matTooltipPosition="below" matTooltipShowDelay="150"
+          matTooltipHideDelay="250">
           <mat-icon>account_circle</mat-icon>
         </button>
       </a>
-      <a>
-        <button mat-icon-button matTooltip="Polub nas!" matTooltipPosition="below" matTooltipShowDelay="300"
-          matTooltipHideDelay="300">
+      <a a class='icon-link' href='https://github.com/Seven730/ecommerce-frontend'>
+        <button mat-icon-button matTooltip="Polub nasz projekt!" matTooltipPosition="below" matTooltipShowDelay="150"
+          matTooltipHideDelay="250">
           <mat-icon>favorite</mat-icon>
         </button>
       </a>
       <a>
-        <button mat-icon-button matTooltip="Udostępnij znajomym" matTooltipPosition="below" matTooltipShowDelay="300"
-          matTooltipHideDelay="300">
+        <button mat-icon-button matTooltip="Udostępnij znajomym" matTooltipPosition="below" matTooltipShowDelay="150"
+          matTooltipHideDelay="250">
           <mat-icon>share</mat-icon>
         </button>
       </a>
       <app-logout></app-logout>
     </div>
-    <button mat-icon-button matTooltip="Zmień język" matTooltipPosition="below" matTooltipShowDelay="300"
-      matTooltipHideDelay="300">
+    <button mat-icon-button matTooltip="Zmień język" matTooltipPosition="below" matTooltipShowDelay="150"
+      matTooltipHideDelay="250">
       <mat-icon>language</mat-icon>
     </button>
   </mat-toolbar>

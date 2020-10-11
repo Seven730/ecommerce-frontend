@@ -1,8 +1,9 @@
 <div id='book-list'>
   <app-search></app-search>
-  <mat-grid-list cols="4" rowHeight="1:1.15">
-    <mat-grid-tile *ngFor="let book of this.bookList">
-      <mat-card>
+  <!-- <mat-grid-list cols="4" rowHeight="1:1.15"> -->
+    <!-- <mat-grid-tile *ngFor="let book of this.bookList"> -->
+      <div class='book-list-container'>
+      <mat-card class='mat-card-container' *ngFor="let book of this.bookList">
         <img class='small-image' mat-card-image src='{{book.cover}}' (click)="openWithTemplate(tpl)">
 
         <ng-template #tpl>
@@ -26,8 +27,7 @@
                   </div>
                   <button class="overlay-add-to-cart-button" mat-stroked-button color="primary" (click)='handleAddToCart(book.title)'>Dodaj do
                     koszyka
-                    <mat-icon>add
-                    </mat-icon>
+                    <mat-icon>add_shopping_cart</mat-icon>
                   </button>
                 </mat-grid-list>
               </section>
@@ -41,13 +41,13 @@
           <mat-icon class="see-more">zoom_in</mat-icon>
           <p>Więcej</p>
         </div>
-        <button class='add-to-cart-button' mat-stroked-button (click)='handleAddToCart(book.title)'>Dodaj do koszyka
-          <mat-icon>add
-          </mat-icon>
+        <button class='add-to-cart-button' mat-stroked-button (click)='handleAddToCart(book.title)'>Do koszyka
+          <mat-icon>add_shopping_cart</mat-icon>
+          <mat-card-title class="price">{{book.price + 'zł'}}</mat-card-title> 
         </button>
-        <mat-card-title class="price">{{book.price + 'zł'}}</mat-card-title>
       </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+    </div>
+    <!-- </mat-grid-tile> -->
+  <!-- </mat-grid-list> -->
   <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[10, 20]"></mat-paginator>
 </div>

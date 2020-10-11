@@ -1,16 +1,17 @@
 #booklist
     background-color: ivory
 
+.book-list-container
+    margin: 0 0 0 4vh
 .mat-card
-    background: white
-    width: 60%
-    height: 75%
+    background: #F6F6F6
+    width: 30vh
+    height: 43vh
     display: inline-block
     justify-content: center
-    padding: 20px 20px 45px 20px
-    border: 1px solid lightgrey
-    box-shadow: 1.5px 0.8px 0.8px 1px #c2c2c2
-    margin: 3% 0 3% 0
+    border: none
+    box-shadow: none
+    margin: 2vh 2.5vh 2vh 2.5vh
     .small-image
         height: 90%
         width: 100%
@@ -18,6 +19,7 @@
         transition: .3s ease
         backface-visibility: hidden
         cursor: pointer
+        box-shadow: 1.5px 0.8px #c2c2c2
         &:hover
             opacity: 0.3
         &:hover ~ .middle
@@ -35,6 +37,7 @@
         &:hover ~ .mat-card-image
             opacity: 0.3 !important
     .add-to-cart-button
+        text-align: center
         width: 100%
         height: 10%
         background: white
@@ -43,13 +46,17 @@
         border-radius: 0px 0px 10px 10px
         border: 1px solid black
         border-top: none
-        // box-shadow: 1.5px 0.8px #c2c2c2
+        box-shadow: 1.5px 0.8px #c2c2c2
+        transition: 0.2s
+        font-size: 0.75rem
+        &:hover
+            background: #e9e9e9d8
     .see-more
         font-size: 50px
         cursor: pointer
     .price
         text-align: center
-        margin-top: 4%
+        margin-top: 0.5vh
     .big-image
         width: 350px
         height: 480px
