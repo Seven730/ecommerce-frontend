@@ -17,6 +17,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatListModule } from '@angular/material/list';
 import { MatTooltipModule } from '@angular/material/tooltip';
+// Other Modules
+import { NgxPaginationModule } from 'ngx-pagination';
 // Components
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
@@ -74,6 +76,7 @@ import { ProfileService } from './profile/profile.service';
     MatPaginatorModule,
     MatListModule,
     MatTooltipModule,
+    NgxPaginationModule,
   ],
   providers: [
     GenresService,

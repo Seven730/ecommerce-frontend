@@ -1,14 +1,13 @@
 <div id='book-list'>
   <app-search></app-search>
-  <!-- <mat-grid-list cols="4" rowHeight="1:1.15"> -->
-    <!-- <mat-grid-tile *ngFor="let book of this.bookList"> -->
       <div class='book-list-container'>
-      <mat-card class='mat-card-container' *ngFor="let book of this.bookList">
+      <mat-card class='mat-card-container' *ngFor="let book of this.bookList | paginate: { itemsPerPage: 10, currentPage: page }">
         <img class='small-image' mat-card-image src='{{book.cover}}' (click)="openWithTemplate(tpl)">
-
+        
         <ng-template #tpl>
           <div class="modal-card">
             <mat-card class="card">
+
               <header class="modal-card-head">
                 <h1>{{book.title}}</h1>
                 <button class='button' mat-raised-button (click)='onCancel()'>
@@ -17,7 +16,7 @@
               </header>
              
               <section class="modal-card-body">
-                <mat-grid-list cols="2" rowHeight="2:1">
+
                     <div>
                       <img class='big-image' mat-card-image src='{{book.cover}}'>
                     </div>
@@ -29,10 +28,11 @@
                     koszyka
                     <mat-icon>add_shopping_cart</mat-icon>
                   </button>
-                </mat-grid-list>
+
               </section>
-              <footer class="modal-card-foot">
-              </footer>
+
+              <footer class="modal-card-foot"></footer>
+              
             </mat-card>
           </div>
         </ng-template>
@@ -46,8 +46,6 @@
           <mat-card-title class="price">{{book.price + 'zł'}}</mat-card-title> 
         </button>
       </mat-card>
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
-    <!-- </mat-grid-tile> -->
-  <!-- </mat-grid-list> -->
-  <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[10, 20]"></mat-paginator>
 </div>

@@ -20,6 +20,7 @@ export class ListComponent implements IListComponent {
   bookList;
   url = 'http://127.0.0.1:8000/api/books/?format=json';
   overlayRef;
+  public page: any;
 
   constructor(
     private service: ListService,
