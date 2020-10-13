@@ -10,25 +10,26 @@
 
               <header class="modal-card-head">
                 <h1>{{book.title}}</h1>
-                <button class='button' mat-raised-button (click)='onCancel()'>
+                <span class="spacer"></span>
+                <button class='exit-button' mat-raised-button (click)='onCancel()'>
                   <mat-icon>cancel</mat-icon>
                 </button>
               </header>
              
               <section class="modal-card-body">
-
-                    <div>
-                      <img class='big-image' mat-card-image src='{{book.cover}}'>
-                    </div>
-                  <div>
-                    <h4>{{book.price + 'zł'}}</h4>
-                    <p>{{book.description}}</p>
-                  </div>
+                <div class='big-image-container'>
+                  <img class='big-image' mat-card-image src='{{book.cover}}'>
+                </div>
+                <span class="spacer"></span>
+                <div class='text-container'>
+                  <h2>Gatunek: {{book.genre}}</h2>
+                  <h3 class='text-description'>{{book.description}}</h3>
                   <button class="overlay-add-to-cart-button" mat-stroked-button color="primary" (click)='handleAddToCart(book.title)'>Dodaj do
                     koszyka
                     <mat-icon>add_shopping_cart</mat-icon>
                   </button>
-
+                  <h3>{{book.price + 'zł'}}</h3>
+                </div>
               </section>
 
               <footer class="modal-card-foot"></footer>

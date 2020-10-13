@@ -57,17 +57,36 @@
     .price
         text-align: center
         margin-top: 0.5vh
-    .modal-card
-        text-align: center
-        width: 0.5vh
-        .big-image
-            width: 350px !important
-            height: 480px !important
-        .card
-            width: 0.5vh
+
+.modal-card
+    text-align: center
+    .card
+        width: 100vh
+        .modal-card-head
+            display: flex
+            border-bottom: solid 1px grey
+            margin: 2% 3% 4% 3%
+            .spacer
+                flex: 1 1 auto
+            .exit-button
+                border: none
+                box-shadow: none
+                border-radius: 200px
         .modal-card-body
             display: flex
-
-.overlay-add-to-cart-button
-    width: 50%
-    height: 10%
+            // justify-content: center
+            margin: 1% 4% 1% 4.7%
+            .big-image
+                width: 350px !important
+                height: 480px !important
+            .spacer
+                flex: 1 1 auto
+            .text-container
+                margin: 0 0 0 5%
+                .text-description
+                    text-align: justify
+                .overlay-add-to-cart-button
+                    width: 90%
+                    height: 10%
+                    color: black
+                    background: ivory
