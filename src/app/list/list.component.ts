@@ -1,14 +1,19 @@
 import { CartService } from './../cart/cart.service';
 import { AccountService } from './../account.service';
 import { ListService } from './list.service';
-import { Component, ViewContainerRef, TemplateRef } from '@angular/core';
+import {
+  Component,
+  ViewContainerRef,
+  TemplateRef,
+  OnInit,
+} from '@angular/core';
 import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 
 interface IListComponent {
   bookList: string[];
-  url: string;
   overlayRef: any;
+  page: any;
 }
 
 @Component({
@@ -16,11 +21,10 @@ interface IListComponent {
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.sass'],
 })
-export class ListComponent implements IListComponent {
-  bookList;
-  url = 'http://127.0.0.1:8000/api/books/?format=json';
-  overlayRef;
-  public page: any;
+export class ListComponent implements IListComponent, OnInit {
+  public bookList;
+  public overlayRef;
+  public page;
 
   constructor(
     private service: ListService,
@@ -30,11 +34,15 @@ export class ListComponent implements IListComponent {
     private cart: CartService
   ) {}
 
-  getBookList(search: string, genre: string) {
-    this.url = `${this.url}&search=${search}&genre=${genre}`;
-    this.service.getList(this.url).subscribe((data) => {
+  ngOnInit() {
+    this.service.getList().subscribe((data) => {
       this.bookList = data;
-      console.log(this.bookList);
+    });
+  }
+
+  getBookList() {
+    this.service.getList().subscribe((data) => {
+      this.bookList = data;
     });
   }
 

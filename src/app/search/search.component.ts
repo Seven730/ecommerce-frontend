@@ -1,26 +1,25 @@
+import { ListService } from './../list/list.service';
 import { ListComponent } from './../list/list.component';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.sass'],
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
   value: string = '';
 
-  constructor(private list: ListComponent) {}
+  constructor(private listService: ListService, private list: ListComponent) {}
 
   setUrl(search: string): void {
-    this.list.getBookList(search, '');
+    this.listService.search = search;
+    this.list.getBookList();
   }
 
   cancelSearch(): void {
     this.value = '';
-    this.list.getBookList(this.value, '');
-  }
-
-  ngOnInit(): void {
-    this.list.getBookList(this.value, '');
+    this.listService.search = '';
+    this.list.getBookList();
   }
 }

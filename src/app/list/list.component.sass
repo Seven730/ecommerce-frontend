@@ -5,13 +5,13 @@
     margin: 0 0 0 3vh
 .mat-card-container
     background: #F6F6F6
-    width: 24vh
-    height: 35vh
+    width: 22vh
+    height: 32vh
     display: inline-block
     justify-content: center
     border: none
     box-shadow: none
-    margin: 0.5vh 2.5vh 1vh 2.5vh
+    margin: 0vh 2.5vh 1vh 2.5vh
     .small-image
         height: 90%
         width: 100%
@@ -32,15 +32,23 @@
         left: 50%
         transform: translate(-50%, -50%)
         -ms-transform: translate(-50%, -50%)
+        cursor: pointer
         &:hover
             opacity: 1
         &:hover ~ .mat-card-image
-            opacity: 0.3 !important
+            opacity: 0.3
+    .see-more
+        font-size: 50px
+        &:hover
+            opacity: 1
+        &:hover ~ .mat-card-image
+            opacity: 0.3
     .add-to-cart-button
         text-align: center
         width: 100%
         height: 10%
         background: white
+        color: black
         padding: 0 !important
         margin-top: -5px
         border-radius: 0px 0px 10px 10px
@@ -51,9 +59,7 @@
         font-size: 0.75rem
         &:hover
             background: #e9e9e9d8
-    .see-more
-        font-size: 50px
-        cursor: pointer
+            font-size: 0.7rem
     .price
         text-align: center
         margin-top: 0.5vh
@@ -74,7 +80,6 @@
                 border-radius: 200px
         .modal-card-body
             display: flex
-            // justify-content: center
             margin: 1% 4% 1% 4.7%
             .big-image
                 width: 350px !important
@@ -83,10 +88,20 @@
                 flex: 1 1 auto
             .text-container
                 margin: 0 0 0 5%
+                .description-header-container
+                    text-align: left
                 .text-description
                     text-align: justify
+                .genres-price-container
+                    display: flex
+                    .spacer
+                        flex: 1 1 auto
                 .overlay-add-to-cart-button
-                    width: 90%
+                    width: 100%
                     height: 10%
-                    color: black
-                    background: ivory
+                    color: white
+                    background: black
+                    transition: 0.2s ease
+                    font-size: 0.75rem
+                    &:hover
+                        font-size: 0.7rem

@@ -1,3 +1,4 @@
+import { ListService } from './../list/list.service';
 import { ListComponent } from './../list/list.component';
 import { GenresService } from './genres.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,8 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
   public genres: string[];
+  public isActive: boolean = false;
 
-  constructor(private service: GenresService, private list: ListComponent) {}
+  constructor(
+    private service: GenresService,
+    private listService: ListService,
+    private list: ListComponent
+  ) {}
 
   ngOnInit(): void {
     this.service
@@ -19,6 +25,16 @@ export class MenuComponent implements OnInit {
   }
 
   setUrl(genre: string): void {
-    this.list.getBookList('', genre.slice(0, 1));
+    if (genre.slice(0, 1) === this.listService.genre) {
+      this.listService.genre = '';
+    } else {
+      this.listService.genre = genre.slice(0, 1);
+    }
+    this.list.getBookList();
+    this.isActiveChange();
+  }
+
+  isActiveChange() {
+    return !this.isActive;
   }
 }
