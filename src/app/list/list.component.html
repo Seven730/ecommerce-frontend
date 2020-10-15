@@ -1,7 +1,6 @@
 <div id='book-list'>
   <div class='top-bar-container'>
     <app-search></app-search>
-    <!-- <pagination-controls (pageChange)="page = $event"></pagination-controls> -->
   </div>
       <div class='book-list-container'>
       <mat-card class='mat-card-container' *ngFor="let book of this.bookList | paginate: { itemsPerPage: 10, currentPage: page }">

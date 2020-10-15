@@ -1,3 +1,7 @@
+$smallScreen: 500px
+$mediumScreen: 815px
+$tabletScreen: 1024px
+
 .landing
     background: url('../../assets/landing.jpg') no-repeat center center fixed
     width: 100%
@@ -15,6 +19,8 @@
     .landing-title
         font-size: 10vh
         font-family: 'Sansita Swashed', cursive
+        @media screen and (max-width: $smallScreen)
+            font-size: 5vh
     .landing-button-container
         text-align: center
         margin-top: 8vh
@@ -32,8 +38,17 @@
         &:hover
             color: white
             background: #ffffff62
+        @media screen and (min-width: $smallScreen) and (max-width: $mediumScreen)
+            height: 8vh
+            width: 15%
+            font-size: 70%
     .landing-footer, .landing-footer a
         text-align: center
         margin-top: 38vh
         color: ivory
         bottom: 5
+        @media screen and (max-width: $smallScreen)
+            margin-top: 36vh
+        @media screen and (min-width: $smallScreen) and (max-width: $mediumScreen)
+            margin-top: 30vh
+            font-size: 0.5rem

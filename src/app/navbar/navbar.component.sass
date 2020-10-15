@@ -1,3 +1,7 @@
+$smallScreen: 500px
+$mediumScreen: 815px
+$tabletScreen: 1024px
+
 .navbar
     position: fixed
     top: 0
@@ -6,14 +10,20 @@
     background-color: grey
     width: 100%
     border-radius: 0 0 16px 16px
-
     .logo
         cursor: pointer
         font-family: 'Fondamento', cursive
         font-size: 35px
-
+        @media screen and (max-width: $smallScreen)
+            font-size: 29px
     .spacer
         flex: 1 1 auto
-
     .icon-link
         color: white !important
+    .icon-link-hide
+        color: white !important
+        @media screen and (max-width: $smallScreen)
+            display: none
+    .language-button
+        @media screen and (max-width: $smallScreen)
+            display: none
