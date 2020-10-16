@@ -1,8 +1,14 @@
+<mat-drawer-container>
+  <mat-drawer mode="side" opened class='drawer-side'>
+    <app-menu></app-menu>
+  </mat-drawer>
+  <mat-drawer-content class='drawer-right-side'>
 <div id='book-list'>
   <div class='top-bar-container'>
     <app-search></app-search>
   </div>
       <div class='book-list-container'>
+      <h2 class='no-books' *ngIf='this.bookList && !this.bookList.length'>Brak wyników</h2>
       <mat-card class='mat-card-container' *ngFor="let book of this.bookList | paginate: { itemsPerPage: 10, currentPage: page }">
         <img class='small-image' mat-card-image src='{{book.cover}}' (click)="openWithTemplate(tpl)">
         <div class="middle">
@@ -58,3 +64,14 @@
       <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
 </div>
+
+</mat-drawer-content>
+</mat-drawer-container>
+<!-- <mat-drawer-container>
+  <mat-drawer mode="side" opened class='drawer-side'>
+    <app-menu></app-menu>
+  </mat-drawer>
+  <mat-drawer-content class='drawer-right-side'>
+    <app-list></app-list>
+  </mat-drawer-content>
+</mat-drawer-container> -->

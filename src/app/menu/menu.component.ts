@@ -10,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
   public genres: string[];
-  public isActive: boolean = false;
+  public activeGenre: string;
+  public activeCount: number;
 
   constructor(
     private service: GenresService,
@@ -22,6 +23,7 @@ export class MenuComponent implements OnInit {
     this.service
       .getGenres()
       .subscribe((data) => ((this.genres as any) = Object.values(data)));
+    this.activeCount = 0;
   }
 
   setUrl(genre: string): void {
@@ -31,10 +33,14 @@ export class MenuComponent implements OnInit {
       this.listService.genre = genre.slice(0, 1);
     }
     this.list.getBookList();
-    this.isActiveChange();
+    this.onSelect(genre);
   }
 
-  isActiveChange() {
-    return !this.isActive;
+  onSelect(genre: string): void {
+    if (this.activeCount > 1 || genre !== this.activeGenre) {
+      this.activeCount = 0;
+    }
+    this.activeGenre = genre;
+    this.activeCount++;
   }
 }
