@@ -1,10 +1,12 @@
-<div class='menu-container'>
-  <h1 class='menu-header'>Gatunki</h1>
-  <mat-list>
-    <mat-list-item *ngFor='let genre of genres'
-      class='menu-item'
-      [class.menu-item-active]="genre === activeGenre && activeCount < 2"
-      (click)="setUrl(genre)">{{genre}}
-    </mat-list-item>
-  </mat-list>
+<div id='menu'>
+  <div class='menu-container'>
+    <h1 class='menu-header'>Gatunki</h1>
+    <mat-list>
+      <mat-list-item *ngFor='let genre of genres'
+        class='menu-item'
+        [class.menu-item-active]="genre === activeGenre && activeCount < 2"
+        (click)="setUrl(genre)">{{genre}}
+      </mat-list-item>
+    </mat-list>
+  </div>
 </div>

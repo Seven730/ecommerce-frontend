@@ -2,22 +2,33 @@ $smallScreen: 500px
 $mediumScreen: 815px
 $tabletScreen: 1024px
 
-#booklist
-    background-color: ivory
+#book-list
+    background: url('../../assets/bg.jpg') no-repeat center center fixed
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+    background-size: cover
+    width: 100%
+    height: 100%
+
+.book-container
+    position: relative
+    padding: 8vh 0 0 3vh
 
 .book-list-container
-    margin: 0 0 0 3vh
     height: 800px
     overflow: hidden
     @media screen and ( max-width: $smallScreen )
         min-height: 73vh
         height: 100%
     @media screen and ( min-width: $smallScreen ) and ( max-width: $mediumScreen )
-        margin-left: 6vh
+        margin-left: 3vh
+        height: 100%
+        min-height: 67vh
     .no-books
         margin-left: 4vh
 .mat-card-container
-    background: #F6F6F6
+    background: transparent
     width: 22vh
     height: 32vh
     display: inline-block
@@ -39,7 +50,7 @@ $tabletScreen: 1024px
         transition: .3s ease
         backface-visibility: hidden
         cursor: pointer
-        box-shadow: 1.5px 0.8px #c2c2c2
+        box-shadow: none
         &:hover
             opacity: 0.3
         &:hover ~ .middle
@@ -74,7 +85,7 @@ $tabletScreen: 1024px
         border-radius: 0px 0px 10px 10px
         border: 1px solid black
         border-top: none
-        box-shadow: 1.5px 0.8px #c2c2c2
+        box-shadow: none
         transition: 0.2s
         font-size: 0.75rem
         &:hover
@@ -92,26 +103,59 @@ $tabletScreen: 1024px
     text-align: center
     .card
         width: 100vh
+        @media screen and ( max-width: $smallScreen )
+            width: 45vh
+            height: auto
+        @media screen and ( min-width: $smallScreen ) and ( max-width: $mediumScreen )
+            width: 150vh
+            height: auto
+        h1
+            margin: 0 0 2% 0
+        h2
+            @media screen and ( min-width: $smallScreen ) and ( max-width: $mediumScreen )
+                margin: 1% 1% 1% 1%
+        h3
+            @media screen and ( min-width: $smallScreen ) and ( max-width: $mediumScreen )
+                margin: 1% 1% 0% 1%
         .modal-card-head
             display: flex
             border-bottom: solid 1px grey
             margin: 2% 3% 4% 3%
+            @media screen and ( max-width: $smallScreen )
+                margin: 0 0 0 0
+            @media screen and ( min-width: $smallScreen ) and ( max-width: $mediumScreen )
+                margin: 0 0 0 0
             .spacer
                 flex: 1 1 auto
             .exit-button
                 border: none
                 box-shadow: none
                 border-radius: 200px
+                margin: 0 0 2% 0
+                @media screen and ( max-width: $smallScreen )
+                    border-radius: none
         .modal-card-body
             display: flex
             margin: 1% 4% 1% 4.7%
+            @media screen and ( max-width: $smallScreen )
+                margin: 0 0 0 0
+            @media screen and ( min-width: $smallScreen ) and ( max-width: $mediumScreen )
+                margin: 0 0 0 0
             .big-image
                 width: 350px !important
                 height: 480px !important
+                @media screen and ( max-width: $smallScreen )
+                    display: none
+                @media screen and ( min-width: $smallScreen ) and ( max-width: $mediumScreen )
+                    display: none
             .spacer
                 flex: 1 1 auto
             .text-container
                 margin: 0 0 0 5%
+                @media screen and ( max-width: $smallScreen )
+                    margin: 0 0 0 0
+                @media screen and ( min-width: $smallScreen ) and ( max-width: $mediumScreen )
+                    margin: 0 0 0 0
                 .description-header-container
                     text-align: left
                 .text-description
@@ -122,20 +166,35 @@ $tabletScreen: 1024px
                         flex: 1 1 auto
                 .overlay-add-to-cart-button
                     width: 100%
-                    height: 10%
+                    height: 8%
                     color: white
                     background: black
                     transition: 0.2s ease
                     font-size: 0.75rem
                     &:hover
                         font-size: 0.7rem
-
+                    @media screen and ( max-width: $smallScreen )
+                        height: 5.5vh
+                    @media screen and ( min-width: $smallScreen ) and ( max-width: $mediumScreen )
+                        height: 9vh
 .drawer-right-side
     background-color: #f6f6f6
 .drawer-side
     width: 15%
-    background-color: #f3f3f3
+    height: 100%
     @media screen and (max-width: $smallScreen)
         display: none
     @media screen and ( min-width: $smallScreen ) and ( max-width: $mediumScreen )
         width: 20%
+    .side-bg-container
+        width: auto
+        height: auto
+        .side-bg
+            position: absolute
+            background: url('../../assets/menubg.jpg') no-repeat bottom
+            -webkit-background-size: cover
+            -moz-background-size: cover
+            -o-background-size: cover
+            background-size: 100% 33%
+            width: 100%
+            height: 100%

@@ -1,7 +1,5 @@
-import { UserInfo } from './userInfo';
 import { ProfileService } from './profile.service';
 import { Component, OnInit } from '@angular/core';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-profile',
@@ -17,7 +15,6 @@ export class ProfileComponent implements OnInit {
     this.service.getUserInfo().subscribe(
       (response) => {
         this.userInfo = response;
-        console.log(this.userInfo);
       },
       (error) => console.log(error)
     );

@@ -1,68 +1,74 @@
 <mat-drawer-container>
   <mat-drawer mode="side" opened class='drawer-side'>
-    <app-menu></app-menu>
+    <div class='side-bg-container'>
+      <div class='side-bg'>
+        <app-menu></app-menu>
+      </div>
+    </div>
   </mat-drawer>
   <mat-drawer-content class='drawer-right-side'>
 <div id='book-list'>
-  <div class='top-bar-container'>
-    <app-search></app-search>
-  </div>
-      <div class='book-list-container'>
-      <h2 class='no-books' *ngIf='this.bookList && !this.bookList.length'>Brak wyników</h2>
-      <mat-card class='mat-card-container' *ngFor="let book of this.bookList | paginate: { itemsPerPage: 10, currentPage: page }">
-        <img class='small-image' mat-card-image src='{{book.cover}}' (click)="openWithTemplate(tpl)">
-        <div class="middle">
-          <mat-icon class="see-more">zoom_in</mat-icon>
-          <p>Więcej</p>
-        </div>
-        <ng-template #tpl>
-          <div class="modal-card">
-            <mat-card class="card">
-
-              <header class="modal-card-head">
-                <h1>{{book.title}}</h1>
-                <span class="spacer"></span>
-                <button class='exit-button' mat-raised-button (click)='onCancel()'>
-                  <mat-icon>cancel</mat-icon>
-                </button>
-              </header>
-             
-              <section class="modal-card-body">
-                <div class='big-image-container'>
-                  <img class='big-image' mat-card-image src='{{book.cover}}'>
-                </div>
-                <span class="spacer"></span>
-                <div class='text-container'>
-                  <div class='description-header-container'>
-                    <h2>Opis książki:</h2>
-                  </div>
-                  <h3 class='text-description'>{{book.description}}</h3>
-                  <div class='genres-price-container'>
-                    <h2>Gatunek: {{book.genre}}</h2>
-                    <span class="spacer"></span>
-                    <h2>Cena: {{book.price + 'zł'}}</h2>
-                  </div>
-                  <button class="overlay-add-to-cart-button" mat-stroked-button color="primary" (click)='handleAddToCart(book.title)'>Dodaj do
-                    koszyka
-                    <mat-icon>add_shopping_cart</mat-icon>
-                  </button>
-                </div>
-              </section>              
-            </mat-card>
-          </div>
-        </ng-template>
-
-        <div class="middle" (click)="openWithTemplate(tpl)">
-          <mat-icon class="see-more">zoom_in</mat-icon>
-          <p>Więcej</p>
-        </div>
-        <button class='add-to-cart-button' mat-stroked-button (click)='handleAddToCart(book.title)'>Do koszyka
-          <mat-icon>add_shopping_cart</mat-icon>
-        </button>
-        <mat-card-title class="price">{{book.price + 'zł'}}</mat-card-title> 
-      </mat-card>
-      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  <div class='book-container'>
+    <div class='top-bar-container'>
+      <app-search></app-search>
     </div>
+        <div class='book-list-container'>
+        <h2 class='no-books' *ngIf='this.bookList && !this.bookList.length'>Brak wyników</h2>
+        <mat-card class='mat-card-container' *ngFor="let book of this.bookList | paginate: { itemsPerPage: 10, currentPage: page }">
+          <img class='small-image' mat-card-image src='{{book.cover}}' (click)="openWithTemplate(tpl)">
+          <div class="middle">
+            <mat-icon class="see-more">zoom_in</mat-icon>
+            <p>Więcej</p>
+          </div>
+          <ng-template #tpl>
+            <div class="modal-card">
+              <mat-card class="card">
+  
+                <header class="modal-card-head">
+                  <h1>{{book.title}}</h1>
+                  <span class="spacer"></span>
+                  <button class='exit-button' mat-raised-button (click)='onCancel()'>
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </header>
+               
+                <section class="modal-card-body">
+                  <div class='big-image-container'>
+                    <img class='big-image' mat-card-image src='{{book.cover}}'>
+                  </div>
+                  <span class="spacer"></span>
+                  <div class='text-container'>
+                    <div class='description-header-container'>
+                      <h2>Opis książki:</h2>
+                    </div>
+                    <h3 class='text-description'>{{book.description}}</h3>
+                    <div class='genres-price-container'>
+                      <h2>Gatunek: {{book.genre}}</h2>
+                      <span class="spacer"></span>
+                      <h2>Cena: {{book.price + 'zł'}}</h2>
+                    </div>
+                    <button class="overlay-add-to-cart-button" mat-stroked-button color="primary" (click)='handleAddToCart(book.title)'>Dodaj do
+                      koszyka
+                      <mat-icon>add_shopping_cart</mat-icon>
+                    </button>
+                  </div>
+                </section>              
+              </mat-card>
+            </div>
+          </ng-template>
+  
+          <div class="middle" (click)="openWithTemplate(tpl)">
+            <mat-icon class="see-more">zoom_in</mat-icon>
+            <p>Więcej</p>
+          </div>
+          <button class='add-to-cart-button' mat-stroked-button (click)='handleAddToCart(book.title)'>Do koszyka
+            <mat-icon>add_shopping_cart</mat-icon>
+          </button>
+          <mat-card-title class="price">{{book.price + 'zł'}}</mat-card-title> 
+        </mat-card>
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      </div>
+  </div>
 </div>
 
 </mat-drawer-content>

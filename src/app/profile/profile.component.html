@@ -1,39 +1,43 @@
-<app-navbar></app-navbar>
-<div class='profile-container'>
-    <mat-card class='profile-card' *ngIf='!isAdmin()'>
-        <h1>Panel użytkownika - {{userInfo.username}}</h1>
-        <div>
-            <h2>Informacje</h2>
-            <p>Adres email: {{userInfo.email}}</p>
-            <p>Rola: {{userInfo.groups}}</p>
+<div id='profile-page'>
+    <app-navbar></app-navbar>
+    <div class='profile-container'>
+        <div class='margin'>
+            <mat-card class='profile-card' *ngIf='!isAdmin()'>
+                <h1>Panel użytkownika - {{userInfo.username}}</h1>
+                <div>
+                    <h2>Informacje</h2>
+                    <p>Adres email: {{userInfo.email}}</p>
+                    <p>Rola: {{userInfo.groups}}</p>
+                </div>
+                <div>
+                    <h2>Zmień adres email</h2>
+                    <form>
+                        <mat-form-field>
+                            <mat-label>email</mat-label>
+                            <input matInput placeholder="Wpisz nowy adres e-mail">
+                        </mat-form-field>
+                    </form>
+                    <div>
+                        <button class='button' mat-raised-button>Potwierdź</button>
+                    </div>
+                </div>
+            </mat-card>
+        
+            <mat-card class='profile-card' *ngIf='isAdmin()'>
+                <h1>Panel administratora - {{userInfo.username}}</h1>
+                <div>
+                    <h2>Informacje</h2>
+                    <p>Adres email: {{userInfo.email}}</p>
+                    <p>Rola: {{userInfo.groups}}</p>
+                    <p>Id: {{userInfo.id}}</p>
+                </div>
+                <div>
+                    <h2>Dodaj książkę do sklepu</h2>
+                </div>
+                <div>
+                    <h2>Usuń książkę ze sklepu</h2>
+                </div>
+            </mat-card>
         </div>
-        <div>
-            <h2>Zmień adres email</h2>
-            <form>
-                <mat-form-field>
-                    <mat-label>email</mat-label>
-                    <input matInput placeholder="Wpisz nowy adres e-mail">
-                </mat-form-field>
-            </form>
-            <div>
-                <button class='button' mat-raised-button>Potwierdź</button>
-            </div>
-        </div>
-    </mat-card>
-
-    <mat-card class='profile-card' *ngIf='isAdmin()'>
-        <h1>Panel administratora - {{userInfo.username}}</h1>
-        <div>
-            <h2>Informacje</h2>
-            <p>Adres email: {{userInfo.email}}</p>
-            <p>Rola: {{userInfo.groups}}</p>
-            <p>Id: {{userInfo.id}}</p>
-        </div>
-        <div>
-            <h2>Dodaj książkę do sklepu</h2>
-        </div>
-        <div>
-            <h2>Usuń książkę ze sklepu</h2>
-        </div>
-    </mat-card>
+    </div>
 </div>
