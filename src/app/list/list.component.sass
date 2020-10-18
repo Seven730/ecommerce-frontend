@@ -28,34 +28,43 @@ $tabletScreen: 1024px
     .no-books
         margin-left: 4vh
 .mat-card-container
-    background: transparent
+    background: white
     width: 22vh
     height: 32vh
     display: inline-block
     justify-content: center
     border: none
     box-shadow: none
-    margin: 0vh 2.5vh 1vh 2.5vh
+    margin: 16px calc(2.5vh + 16px) calc(1vh + 16px) calc(2.5vh + 16px)
+    padding: 0
     @media screen and ( max-width: $smallScreen )
         width: 41vh
         height: 60vh
     @media screen and ( min-width: $smallScreen ) and ( max-width: $mediumScreen )
-        width: 46vh
-        height: 60vh
-        margin: 0 2.5vh 2vh 2.5vh
+        width: 45vh
+        height: 62vh
+        margin: 2vh 3vw 3vh 4.3vw
+    .see-more-container
+        width: 100%
+        height: 90%
+        &:hover
+            opacity: 0.4
+        &:hover ~ .middle
+            opacity: 1
     .small-image
+        z-index: 20
         height: 90%
         width: 100%
         margin: 0 0 0 0
-        transition: .3s ease
-        backface-visibility: hidden
+        transition: .4s ease
         cursor: pointer
         box-shadow: none
         &:hover
-            opacity: 0.3
+            opacity: 0.4
         &:hover ~ .middle
             opacity: 1
     .middle
+        pointer-events: none
         transition: .4s ease
         opacity: 0
         position: absolute
@@ -63,17 +72,8 @@ $tabletScreen: 1024px
         left: 50%
         transform: translate(-50%, -50%)
         -ms-transform: translate(-50%, -50%)
-        cursor: pointer
-        &:hover
-            opacity: 1
-        &:hover ~ .mat-card-image
-            opacity: 0.3
     .see-more
         font-size: 50px
-        &:hover
-            opacity: 1
-        &:hover ~ .mat-card-image
-            opacity: 0.3
     .add-to-cart-button
         text-align: center
         width: 100%
@@ -122,7 +122,7 @@ $tabletScreen: 1024px
             border-bottom: solid 1px grey
             margin: 2% 3% 4% 3%
             @media screen and ( max-width: $smallScreen )
-                margin: 0 0 0 0
+                margin: 0 0 3% 0
             @media screen and ( min-width: $smallScreen ) and ( max-width: $mediumScreen )
                 margin: 0 0 0 0
             .spacer
@@ -191,10 +191,12 @@ $tabletScreen: 1024px
         height: auto
         .side-bg
             position: absolute
-            background: url('../../assets/menubg.jpg') no-repeat bottom
+            background: url('../../assets/menubg2.jpg') no-repeat bottom
             -webkit-background-size: cover
             -moz-background-size: cover
             -o-background-size: cover
             background-size: 100% 33%
             width: 100%
             height: 100%
+            @media screen and ( min-width: $smallScreen ) and ( max-width: $mediumScreen )
+                background-size: 100% 13%
