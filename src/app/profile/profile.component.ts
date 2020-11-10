@@ -8,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
   public userInfo: any;
-
+  public addBookName: string;
+  public addBookAuthor: string;
+  public addBookPrice: number;
+  public addBookDescription: string;
+  // https://www.npmjs.com/package/angular-material-fileupload
   constructor(public service: ProfileService) {}
 
   ngOnInit() {
